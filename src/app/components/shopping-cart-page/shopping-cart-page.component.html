@@ -1,0 +1,52 @@
+ <div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h1>Shopping Z</h1>
+        </div>
+        <div class="col-md-10">
+            <h3>Shopping Cart</h3>
+            <div *ngIf="cartItems.length == 0">
+                <h5>You do not have any items in your cart.</h5> 
+                <a href="#" routerLink="/" routerLinkActive="active" class="btn btn-info pull-left"><i class="fa fa-angle-left"></i> Back to Shopping</a>
+            </div>
+            <table *ngIf="cartItems.length > 0" id="tbl-shopping-cart" class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let item of cartItems; let i = index">
+                            <td>
+                                <div class="col-md-4 thumbnail"><img src="{{item.img}}" class="img-responsive"/></div>
+                                <div class="col-md-8">
+                                        <h4 class="nomargin">{{item.name}}</h4>
+                                        <p>{{item.desc}}</p>
+                                </div>
+                            </td>
+                            <td>${{+(item.price).toFixed(2)}}</td>
+                            <td>
+                                    <input type="number" #inputQty (change)="updateItem(i, inputQty.value)" class="form-control text-center" value="{{item.qty}}">
+                            </td>
+                            <td class="text-center">${{+(item.qty * item.price).toFixed(2)}}</td>
+                            <td class="actions text-center">
+                                    <button (click)="removeItem(i)" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Remove</button>								
+                            </td>
+                        </tr>
+                </tbody>
+                <tfoot>
+                        <tr>
+                            <td><a href="#" routerLink="/" routerLinkActive="active" class="btn btn-info"><i class="fa fa-angle-left"></i> Back to Shopping</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="text-center"><strong>Total: ${{+(total).toFixed(2)}}</strong></td>
+                            <td><a href="#" routerLink="/checkout" routerLinkActive="active" class="btn btn-success btn-block">Proceed to Checkout <i class="fa fa-angle-right"></i></a></td>
+                        </tr>
+                </tfoot>
+            </table>     
+    	</div>
+    </div>
+</div>

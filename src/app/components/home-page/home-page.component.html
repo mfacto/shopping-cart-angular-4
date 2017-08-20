@@ -1,0 +1,35 @@
+ <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Shopping Z</h1>
+        </div>
+        <div class="col-md-8">
+	        <div class="input-group">
+                    <input type="text" class="form-control" (keyup)="searchItems($event)" id="search" placeholder="Search">
+                    <span class="input-group-btn">
+                            <button class="btn btn-primary" (click)="searchItems($event)" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4" *ngFor="let item of filteredItems">
+                        <div>
+                            
+                            <div class="thumbnail">
+                              <img src={{item.itemImage}} class="img-responsive">
+                            </div>
+                            <h5>
+                              {{item.itemName}}
+                            </h5>
+                            <div>
+                              ${{item.itemPrice}}
+                            </div>
+                            <div class="add text-center">
+                                <input type="number" value="1" id="qty-{{item.itemId}}"/>
+                                <a (click)="addToCart($event, item)" class="btn btn-info btn-md">Add to cart <i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+	        </div>
+	</div>
+</div>
+</div>

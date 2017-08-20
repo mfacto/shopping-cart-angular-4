@@ -1,0 +1,16 @@
+[class*="row"], .add{
+    margin-top: 25px;
+}
+.thumbnail {
+    height: 160px;   
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+input[type=number]{
+    width: 40px;
+    margin-right: 5px;
+} 
