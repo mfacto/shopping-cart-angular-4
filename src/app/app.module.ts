@@ -11,8 +11,6 @@ import { CheckoutPageComponent } from './components/checkout-page/checkout-page.
 import { DataService } from './services/data.service';
 
 import { RouterModule, Routes } from '@angular/router';
-import { SearchFilterPipe } from './search-filter.pipe';
-
       
 const appRoutes: Routes = [
   { path: 'login', component: LoginPageComponent },
@@ -27,8 +25,7 @@ const appRoutes: Routes = [
     LoginPageComponent,
     HomePageComponent,
     ShoppingCartPageComponent,
-    CheckoutPageComponent,
-    SearchFilterPipe
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,
